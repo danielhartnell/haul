@@ -36,6 +36,19 @@ module "planet-de" {
   site_build_frequency = "H/30 * * * *"
 }
 
+module "planet-bugzilla" {
+  source = "sites"
+
+  region       = "${var.region}"
+  environment  = "${var.environment}"
+  account      = "${var.account}"
+  service_name = "${var.service_name}"
+  role         = "${module.worker.role}"
+
+  site_name            = "planet-bugzilla"
+  site_build_frequency = "H/30 * * * *"
+}
+
 module "tlscanary" {
   source = "sites"
 
